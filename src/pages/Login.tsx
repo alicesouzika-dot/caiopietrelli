@@ -57,7 +57,7 @@ export const Login: React.FC<LoginProps> = ({ onSucesso }) => {
           Amigos do Caio
         </h2>
         <p className="mt-1 text-xs text-[#5A6382]">
-          Gabinete / Secretaria de Bem-Estar e Proteção Animal · Guapimirim/RJ
+          Painel Admin do Caio Pietrelli
         </p>
       </div>
 
