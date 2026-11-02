@@ -312,12 +312,13 @@ export const MobileTutores: React.FC<MobileTutoresProps> = ({
             type="button"
             onClick={() => {
               hapticTouch();
-              setModoVisualizacao((prev) => (prev === 'lista' ? 'mapa' : 'lista'));
+              onAbrirCadastroRapido();
             }}
-            className="flex h-9 w-9 items-center justify-center rounded-2xl border border-[#E4E7F0] bg-white text-[#06154E] shadow-2xs active:scale-95 transition-transform"
-            title={modoVisualizacao === 'lista' ? 'Ver no Mapa' : 'Ver na Lista'}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-[#06154E] text-white shadow-xs active:scale-95 transition-transform"
+            title="Novo Cadastro"
+            aria-label="Novo cadastro de tutor"
           >
-            {modoVisualizacao === 'lista' ? <Map className="h-4 w-4" /> : <List className="h-4 w-4" />}
+            <Plus className="h-4 w-4" />
           </button>
         </div>
 
@@ -496,20 +497,7 @@ export const MobileTutores: React.FC<MobileTutoresProps> = ({
         </div>
       )}
 
-      {/* 4. FAB "+" para Cadastro Rápido de Campo */}
-      <button
-        type="button"
-        onClick={() => {
-          hapticTouch();
-          onAbrirCadastroRapido();
-        }}
-        className="fixed bottom-20 right-4 z-30 flex h-13 w-13 items-center justify-center rounded-full bg-emerald-600 text-white shadow-xl active:scale-95 transition-transform"
-        aria-label="Cadastro rápido de tutor"
-      >
-        <Plus className="h-6 w-6" />
-      </button>
-
-      {/* 5. BOTTOM SHEET EXPANDIDO DE DETALHES DO TUTOR */}
+      {/* 4. BOTTOM SHEET EXPANDIDO DE DETALHES DO TUTOR */}
       {tutorSelecionado && (
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 backdrop-blur-xs">
           <div className="w-full max-w-md rounded-t-3xl bg-white max-h-[85vh] flex flex-col shadow-2xl animate-in slide-in-from-bottom">
