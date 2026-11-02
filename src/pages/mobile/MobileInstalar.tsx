@@ -70,9 +70,11 @@ export const MobileInstalar: React.FC<MobileInstalarProps> = ({ onVoltar }) => {
         ) : (
           <div className="rounded-2xl bg-gradient-to-br from-[#06154E] to-[#0A2472] p-5 text-white shadow-xl space-y-3">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 text-white">
-                <Download className="h-6 w-6" />
-              </div>
+              <img
+                src="/icons/icon-192.png"
+                alt="Amigos do Caio"
+                className="h-12 w-12 rounded-2xl object-cover shadow-sm border border-white/20 shrink-0"
+              />
               <div>
                 <h2 className="text-base font-bold">Amigos do Caio</h2>
                 <p className="text-xs text-white/80">Painel de Campo & Disparador Oficial</p>
