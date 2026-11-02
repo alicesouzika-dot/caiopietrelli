@@ -50,12 +50,9 @@ export const Login: React.FC<LoginProps> = ({ onSucesso }) => {
             />
           </div>
 
-          <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-white">
-            Amigos do Caio
-          </h2>
-          <p className="mt-1 text-xs font-medium text-white/80">
+          <h2 className="mt-4 text-xl font-extrabold tracking-tight text-white">
             Painel Admin do Caio Pietrelli
-          </p>
+          </h2>
         </div>
 
         {/* Corpo do Card com o Formulário */}
