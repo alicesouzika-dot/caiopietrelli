@@ -1,10 +1,10 @@
 /**
  * Tela de Autenticação / Login
- * E-mail + Senha e recuperação de senha.
+ * Card único integrando logo oficial, título e formulário de acesso.
  */
 
 import React, { useState } from 'react';
-import { Mail, Lock, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Mail, Lock, ArrowRight, AlertCircle, CheckCircle2, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 interface LoginProps {
@@ -15,6 +15,7 @@ export const Login: React.FC<LoginProps> = ({ onSucesso }) => {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [mostrarSenha, setMostrarSenha] = useState(false);
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
   const [esqueciAberto, setEsqueciAberto] = useState(false);
@@ -36,90 +37,94 @@ export const Login: React.FC<LoginProps> = ({ onSucesso }) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F8FC] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-        {/* Logo Institucional */}
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#06154E] text-white shadow-md">
-          <svg
-            className="h-8 w-8 fill-current text-white"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="7" cy="8.5" r="2.2" />
-            <circle cx="17" cy="8.5" r="2.2" />
-            <circle cx="10.5" cy="5.5" r="2.2" />
-            <circle cx="13.5" cy="5.5" r="2.2" />
-            <path d="M12 11c-3.2 0-5.5 2.1-5.5 5.5 0 2.2 2.2 4.5 5.5 4.5s5.5-2.3 5.5-4.5c0-3.4-2.3-5.5-5.5-5.5z" />
-          </svg>
+    <div className="min-h-screen bg-gradient-to-br from-[#E9EEF9] via-[#F4F6FB] to-[#E2E8F6] flex items-center justify-center p-4 sm:p-6">
+      {/* Retângulo Único envolvendo Logo + Título + Formulário */}
+      <div className="w-full max-w-md rounded-3xl bg-white shadow-2xl border border-[#DCE2F0] overflow-hidden">
+        {/* Topo do Card com Fundo Azul Institucional e Imagem do Ícone */}
+        <div className="bg-gradient-to-b from-[#06154E] to-[#0A2472] px-8 pt-9 pb-7 text-center text-white relative">
+          <div className="mx-auto h-20 w-20 rounded-2xl overflow-hidden shadow-lg ring-4 ring-white/15 bg-[#011751]">
+            <img
+              src="/icons/icon-512.png"
+              alt="Amigos do Caio"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-white">
+            Amigos do Caio
+          </h2>
+          <p className="mt-1 text-xs font-medium text-white/80">
+            Painel Admin do Caio Pietrelli
+          </p>
         </div>
 
-        <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-[#0B1020]">
-          Amigos do Caio
-        </h2>
-        <p className="mt-1 text-xs text-[#5A6382]">
-          Painel Admin do Caio Pietrelli
-        </p>
-      </div>
-
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-6 shadow-sm border border-[#E4E7F0] rounded-2xl sm:px-10">
-          <form className="space-y-4" onSubmit={handleSubmit}>
+        {/* Corpo do Card com o Formulário */}
+        <div className="p-7 sm:p-8">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             {erro && (
-              <div className="rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs text-rose-800 flex items-center gap-2">
+              <div className="rounded-xl bg-rose-50 border border-rose-200 p-3.5 text-xs text-rose-800 flex items-center gap-2.5">
                 <AlertCircle className="h-4 w-4 text-rose-600 shrink-0" />
-                <span>{erro}</span>
+                <span className="font-medium">{erro}</span>
               </div>
             )}
 
             <div>
-              <label className="block text-xs font-semibold text-[#0B1020] mb-1">
-                E-mail institucional
+              <label className="block text-xs font-bold text-[#0B1020] mb-1.5">
+                E-mail
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-2.5 h-4 w-4 text-[#5A6382]" />
+                <Mail className="absolute left-3.5 top-3 h-4 w-4 text-[#5A6382]" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="usuario@guapimirim.rj.gov.br"
-                  className="w-full rounded-lg border border-[#E4E7F0] pl-9 pr-3 py-2 text-xs text-[#0B1020] focus:ring-1 focus:ring-[#06154E]"
+                  placeholder="Digite seu e-mail"
+                  className="w-full rounded-xl border border-[#DCE2F0] bg-[#F8FAFC] pl-10 pr-3.5 py-2.5 text-xs text-[#0B1020] placeholder-[#8A94B0] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#06154E] focus:border-transparent transition-all"
                 />
               </div>
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-1">
-                <label className="text-xs font-semibold text-[#0B1020]">
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="text-xs font-bold text-[#0B1020]">
                   Senha
                 </label>
                 <button
                   type="button"
                   onClick={() => setEsqueciAberto(true)}
-                  className="text-[11px] text-[#0A2472] font-semibold hover:underline"
+                  className="text-[11px] text-[#0A2472] font-bold hover:underline"
                 >
                   Esqueci minha senha
                 </button>
               </div>
               <div className="relative">
-                <Lock className="absolute left-3 top-2.5 h-4 w-4 text-[#5A6382]" />
+                <Lock className="absolute left-3.5 top-3 h-4 w-4 text-[#5A6382]" />
                 <input
-                  type="password"
+                  type={mostrarSenha ? 'text' : 'password'}
                   required
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full rounded-lg border border-[#E4E7F0] pl-9 pr-3 py-2 text-xs text-[#0B1020] focus:ring-1 focus:ring-[#06154E]"
+                  className="w-full rounded-xl border border-[#DCE2F0] bg-[#F8FAFC] pl-10 pr-10 py-2.5 text-xs text-[#0B1020] placeholder-[#8A94B0] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#06154E] focus:border-transparent transition-all"
                 />
+                <button
+                  type="button"
+                  onClick={() => setMostrarSenha((prev) => !prev)}
+                  className="absolute right-3 top-2.5 text-[#5A6382] hover:text-[#06154E] p-0.5"
+                  tabIndex={-1}
+                >
+                  {mostrarSenha ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
               </div>
             </div>
 
             <button
               type="submit"
               disabled={carregando}
-              className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#06154E] py-2.5 px-4 text-xs font-bold text-white hover:bg-[#0A2472] shadow-xs transition-colors"
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#06154E] py-3 px-4 text-xs font-bold text-white hover:bg-[#0A2472] active:scale-99 shadow-md transition-all disabled:opacity-60"
             >
-              {carregando ? 'Entrando...' : 'Entrar no Sistema'}
+              <span>{carregando ? 'Entrando...' : 'Entrar no Sistema'}</span>
               <ArrowRight className="h-4 w-4" />
             </button>
           </form>
@@ -138,13 +143,13 @@ export const Login: React.FC<LoginProps> = ({ onSucesso }) => {
             {esqueciEnviado ? (
               <div className="rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-800 flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>Link de recuperação enviado com sucesso para seu e-mail institucional.</span>
+                <span>Link de recuperação enviado com sucesso para seu e-mail.</span>
               </div>
             ) : (
               <input
                 type="email"
                 defaultValue={email}
-                placeholder="seu-email@guapimirim.rj.gov.br"
+                placeholder="Digite seu e-mail"
                 className="w-full rounded-lg border border-[#E4E7F0] px-3 py-2 text-xs"
               />
             )}
