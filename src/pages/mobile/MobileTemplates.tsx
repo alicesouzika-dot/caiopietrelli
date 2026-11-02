@@ -230,42 +230,26 @@ export const MobileTemplates: React.FC<MobileTemplatesProps> = ({ onVoltar }) =>
       </header>
 
       <main className="max-w-md mx-auto p-4 space-y-4">
-        {/* Filtro de Categorias */}
-        <div className="flex flex-wrap items-center gap-1.5">
-          <button
-            type="button"
-            onClick={() => {
+        {/* Filtro de Categorias em Select */}
+        <div>
+          <select
+            value={categoriaAtiva}
+            onChange={(e) => {
               hapticTouch();
-              setCategoriaAtiva('todas');
+              setCategoriaAtiva(e.target.value);
             }}
-            className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-colors ${
-              categoriaAtiva === 'todas'
-                ? 'bg-[#06154E] text-white border-[#06154E]'
-                : 'bg-white text-[#5A6382] border-[#E4E7F0]'
-            }`}
+            className="w-full rounded-xl border border-[#E4E7F0] bg-white px-3.5 py-2.5 text-xs font-bold text-[#0B1020] shadow-2xs focus:ring-2 focus:ring-[#06154E] focus:outline-none"
           >
-            Todas ({templates.length})
-          </button>
-          {Object.entries(CATEGORIAS_CONFIG).map(([key, cfg]) => {
-            const count = templates.filter((t) => t.categoria === key).length;
-            return (
-              <button
-                type="button"
-                key={key}
-                onClick={() => {
-                  hapticTouch();
-                  setCategoriaAtiva(key);
-                }}
-                className={`px-3 py-1.5 text-xs font-bold rounded-full border transition-colors ${
-                  categoriaAtiva === key
-                    ? 'bg-[#06154E] text-white border-[#06154E]'
-                    : 'bg-white text-[#5A6382] border-[#E4E7F0]'
-                }`}
-              >
-                {cfg.label} ({count})
-              </button>
-            );
-          })}
+            <option value="todas">Todas as Categorias ({templates.length})</option>
+            {Object.entries(CATEGORIAS_CONFIG).map(([key, cfg]) => {
+              const count = templates.filter((t) => t.categoria === key).length;
+              return (
+                <option key={key} value={key}>
+                  {cfg.label} ({count})
+                </option>
+              );
+            })}
+          </select>
         </div>
 
         {/* Lista de Cards de Modelos */}
@@ -370,16 +354,6 @@ export const MobileTemplates: React.FC<MobileTemplatesProps> = ({ onVoltar }) =>
           )}
         </div>
       </main>
-
-      {/* Botão Flutuante de Adicionar Modelo */}
-      <button
-        type="button"
-        onClick={abrirCriacao}
-        className="fixed bottom-6 right-5 z-30 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-white shadow-xl active:scale-95"
-        title="Novo Modelo de Mensagem"
-      >
-        <Plus className="h-6 w-6" />
-      </button>
 
       {/* Modal Criar / Editar Modelo */}
       {modalAberto && templateEmEdicao && (
