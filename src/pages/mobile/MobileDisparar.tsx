@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { db } from '../../lib/db';
+import { listarTemplates } from '../../lib/storageEngine';
 import { Tutor, Pet, Template, Envio } from '../../types/database';
 import { interpolarTemplate, VARIAVEIS_DISPONIVEIS } from '../../lib/template';
 import { gerarLinkWhatsApp } from '../../lib/wa';
@@ -115,12 +116,13 @@ export const MobileDisparar: React.FC<MobileDispararProps> = ({
     }
   }, [etapa, onSetEsconderTabBar]);
 
-  // Carregar dados locais do Dexie
+  // Carregar dados locais do Dexie e Storage
   useEffect(() => {
     const carregar = async () => {
       const tutores = await db.tutores.toArray();
       const pets = await db.pets.toArray();
-      const tmpls = await db.templates.toArray();
+      const tmplsStorage = listarTemplates();
+      const tmpls = tmplsStorage.length > 0 ? tmplsStorage : await db.templates.toArray();
       setTodosTutores(tutores);
       setTodosPets(pets);
       setTemplates(tmpls);
@@ -132,6 +134,8 @@ export const MobileDisparar: React.FC<MobileDispararProps> = ({
       }
     };
     carregar();
+    window.addEventListener('amigos_caio_storage_update', carregar);
+    return () => window.removeEventListener('amigos_caio_storage_update', carregar);
   }, []);
 
   // Calcular lista de destinatários filtrados

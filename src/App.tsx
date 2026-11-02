@@ -30,6 +30,7 @@ import { MobileHistorico } from './pages/mobile/MobileHistorico';
 import { MobileMais } from './pages/mobile/MobileMais';
 import { MobileCadastroRapido } from './pages/mobile/MobileCadastroRapido';
 import { MobileInstalar } from './pages/mobile/MobileInstalar';
+import { MobileTemplates } from './pages/mobile/MobileTemplates';
 
 function detectarDispositivoMobile(): boolean {
   if (typeof window === 'undefined') return false;
@@ -54,7 +55,7 @@ function AppContent() {
 
   // Estado do App Mobile
   const [mobileTab, setMobileTab] = useState<MobileTabId>('inicio');
-  const [mobileSubView, setMobileSubView] = useState<'cadastro-rapido' | 'instalar' | null>(null);
+  const [mobileSubView, setMobileSubView] = useState<'cadastro-rapido' | 'instalar' | 'templates' | null>(null);
   const [esconderTabBar, setEsconderTabBar] = useState<boolean>(false);
 
   useEffect(() => {
@@ -96,6 +97,10 @@ function AppContent() {
       return <MobileInstalar onVoltar={() => setMobileSubView(null)} />;
     }
 
+    if (mobileSubView === 'templates') {
+      return <MobileTemplates onVoltar={() => setMobileSubView(null)} />;
+    }
+
     return (
       <div className="relative min-h-screen bg-[#F7F8FC]">
         <MobileLayout
@@ -107,7 +112,7 @@ function AppContent() {
             <MobileInicio
               onNavigateTab={setMobileTab}
               onAbrirCadastroRapido={() => setMobileSubView('cadastro-rapido')}
-              onAbrirMapa={() => setMobileTab('tutores')}
+              onAbrirTemplates={() => setMobileSubView('templates')}
             />
           )}
 

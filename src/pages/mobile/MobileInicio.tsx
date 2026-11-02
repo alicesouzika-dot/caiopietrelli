@@ -8,7 +8,7 @@ import {
   Send,
   UserPlus,
   Search,
-  MapPin,
+  FileText,
   TrendingUp,
   HeartHandshake,
   Users,
@@ -28,13 +28,13 @@ import { MobileTabId } from '../../components/layout/BottomTabBar';
 interface MobileInicioProps {
   onNavigateTab: (tab: MobileTabId) => void;
   onAbrirCadastroRapido: () => void;
-  onAbrirMapa: () => void;
+  onAbrirTemplates: () => void;
 }
 
 export const MobileInicio: React.FC<MobileInicioProps> = ({
   onNavigateTab,
   onAbrirCadastroRapido,
-  onAbrirMapa,
+  onAbrirTemplates,
 }) => {
   const { usuario, role } = useAuth();
   const { isOnline, filaCount, sincronizando, forcarSincronizacao } = useOnlineStatus();
@@ -171,20 +171,22 @@ export const MobileInicio: React.FC<MobileInicioProps> = ({
             <span className="text-[11px] text-[#5A6382] mt-0.5">Por nome, CPF ou pet</span>
           </button>
 
-          {/* Mapa de Tutores */}
+          {/* Modelos de Mensagem WhatsApp */}
           <button
             type="button"
             onClick={() => {
               hapticTouch();
-              onAbrirMapa();
+              onAbrirTemplates();
             }}
             className="flex flex-col items-start p-4 rounded-2xl bg-white border border-[#E4E7F0] shadow-xs active:scale-97 transition-transform text-left"
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#0A2472] mb-3">
-              <MapPin className="h-5 w-5" />
+              <FileText className="h-5 w-5" />
             </div>
-            <span className="text-sm font-bold text-[#0B1020] leading-tight">Mapa de Campo</span>
-            <span className="text-[11px] text-[#5A6382] mt-0.5">Bairros de Guapimirim</span>
+            <span className="text-sm font-bold text-[#0B1020] leading-tight">
+              Modelos de Mensagem WhatsApp
+            </span>
+            <span className="text-[11px] text-[#5A6382] mt-0.5">Mensagens prontas</span>
           </button>
         </div>
       </div>
