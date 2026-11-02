@@ -545,3 +545,4 @@ export const MobileTemplates: React.FC<MobileTemplatesProps> = ({ onVoltar }) =>
     </div>
   );
 };
+
