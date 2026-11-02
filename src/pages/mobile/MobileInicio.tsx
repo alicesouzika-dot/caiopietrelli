@@ -123,7 +123,7 @@ export const MobileInicio: React.FC<MobileInicioProps> = ({
           Ações Rápidas de Campo
         </h3>
         <div className="grid grid-cols-2 gap-3">
-          {/* Novo Disparo */}
+          {/* DISPARO */}
           <button
             type="button"
             onClick={() => {
@@ -135,58 +135,56 @@ export const MobileInicio: React.FC<MobileInicioProps> = ({
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white mb-3">
               <Send className="h-5 w-5" />
             </div>
-            <span className="text-sm font-bold leading-tight">Novo Disparo</span>
+            <span className="text-sm font-bold leading-tight">DISPARO</span>
             <span className="text-[11px] text-white/70 mt-0.5">Campanhas WhatsApp</span>
           </button>
 
-          {/* Cadastro Rápido de Campo */}
+          {/* CADASTRO */}
           <button
             type="button"
             onClick={() => {
               hapticTouch();
               onAbrirCadastroRapido();
             }}
-            className="flex flex-col items-start p-4 rounded-2xl bg-emerald-700 text-white shadow-md active:scale-97 transition-transform text-left"
+            className="flex flex-col items-start p-4 rounded-2xl bg-[#06154E] text-white shadow-md active:scale-97 transition-transform text-left"
           >
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white mb-3">
               <UserPlus className="h-5 w-5" />
             </div>
-            <span className="text-sm font-bold leading-tight">Cadastro Rápido</span>
-            <span className="text-[11px] text-white/80 mt-0.5">Com foto & GPS</span>
+            <span className="text-sm font-bold leading-tight">CADASTRO</span>
+            <span className="text-[11px] text-white/70 mt-0.5">Com foto & GPS</span>
           </button>
 
-          {/* Buscar Tutor */}
+          {/* BUSCAR */}
           <button
             type="button"
             onClick={() => {
               hapticTouch();
               onNavigateTab('tutores');
             }}
-            className="flex flex-col items-start p-4 rounded-2xl bg-white border border-[#E4E7F0] shadow-xs active:scale-97 transition-transform text-left"
+            className="flex flex-col items-start p-4 rounded-2xl bg-[#06154E] text-white shadow-md active:scale-97 transition-transform text-left"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF1FA] text-[#0A2472] mb-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white mb-3">
               <Search className="h-5 w-5" />
             </div>
-            <span className="text-sm font-bold text-[#0B1020] leading-tight">Buscar Tutor</span>
-            <span className="text-[11px] text-[#5A6382] mt-0.5">Por nome, CPF ou pet</span>
+            <span className="text-sm font-bold leading-tight">BUSCAR</span>
+            <span className="text-[11px] text-white/70 mt-0.5">Por nome, CPF ou pet</span>
           </button>
 
-          {/* Modelos de Mensagem WhatsApp */}
+          {/* MENSAGENS */}
           <button
             type="button"
             onClick={() => {
               hapticTouch();
               onAbrirTemplates();
             }}
-            className="flex flex-col items-start p-4 rounded-2xl bg-white border border-[#E4E7F0] shadow-xs active:scale-97 transition-transform text-left"
+            className="flex flex-col items-start p-4 rounded-2xl bg-[#06154E] text-white shadow-md active:scale-97 transition-transform text-left"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#0A2472] mb-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-white mb-3">
               <FileText className="h-5 w-5" />
             </div>
-            <span className="text-sm font-bold text-[#0B1020] leading-tight">
-              Modelos de Mensagem WhatsApp
-            </span>
-            <span className="text-[11px] text-[#5A6382] mt-0.5">Mensagens prontas</span>
+            <span className="text-sm font-bold leading-tight">MENSAGENS</span>
+            <span className="text-[11px] text-white/70 mt-0.5">Mensagens prontas</span>
           </button>
         </div>
       </div>
