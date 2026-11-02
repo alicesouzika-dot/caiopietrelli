@@ -37,12 +37,12 @@ export const Login: React.FC<LoginProps> = ({ onSucesso }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#E9EEF9] via-[#F4F6FB] to-[#E2E8F6] flex items-center justify-center p-4 sm:p-6">
-      {/* Retângulo Único envolvendo Logo + Título + Formulário */}
-      <div className="w-full max-w-md rounded-3xl bg-white shadow-2xl border border-[#DCE2F0] overflow-hidden">
-        {/* Topo do Card com Fundo Azul Institucional e Imagem do Ícone */}
-        <div className="bg-gradient-to-b from-[#06154E] to-[#0A2472] px-8 pt-9 pb-7 text-center text-white relative">
-          <div className="mx-auto h-20 w-20 rounded-2xl overflow-hidden shadow-lg ring-4 ring-white/15 bg-[#011751]">
+    <div className="min-h-screen bg-gradient-to-b from-[#06154E] to-[#0A2472] flex items-center justify-center p-4 sm:p-6">
+      {/* Retângulo Único Branco envolvendo Logo + Título + Formulário */}
+      <div className="w-full max-w-md rounded-3xl bg-white shadow-2xl border border-white/10 overflow-hidden">
+        {/* Topo do Card Branco com Imagem do Ícone e Título em Azul */}
+        <div className="bg-white px-8 pt-9 pb-2 text-center">
+          <div className="mx-auto h-20 w-20 rounded-2xl overflow-hidden shadow-md bg-[#011751]">
             <img
               src="/icons/icon-512.png"
               alt="Amigos do Caio"
@@ -50,13 +50,13 @@ export const Login: React.FC<LoginProps> = ({ onSucesso }) => {
             />
           </div>
 
-          <h2 className="mt-4 text-xl font-extrabold tracking-tight text-white">
+          <h2 className="mt-4 text-xl font-extrabold tracking-tight text-[#06154E]">
             Painel Admin do Caio Pietrelli
           </h2>
         </div>
 
         {/* Corpo do Card com o Formulário */}
-        <div className="p-7 sm:p-8">
+        <div className="p-7 sm:p-8 pt-5">
           <form className="space-y-5" onSubmit={handleSubmit}>
             {erro && (
               <div className="rounded-xl bg-rose-50 border border-rose-200 p-3.5 text-xs text-rose-800 flex items-center gap-2.5">
