@@ -14,7 +14,7 @@ export default defineConfig(() => {
       react(),
       tailwindcss(),
       VitePWA({
-        registerType: 'prompt',
+        registerType: 'autoUpdate',
         injectRegister: 'auto',
         includeAssets: [
           'favicon.ico',
@@ -25,6 +25,9 @@ export default defineConfig(() => {
         ],
         manifest: false, // Usando o arquivo public/manifest.webmanifest explícito
         workbox: {
+          skipWaiting: true,
+          clientsClaim: true,
+          cleanupOutdatedCaches: true,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,webmanifest}'],
           runtimeCaching: [
             {

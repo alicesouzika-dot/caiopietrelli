@@ -3,6 +3,17 @@
   "outputDirectory": "dist",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": "vite",
+  "headers": [
+    {
+      "source": "/(sw\\.js|workbox-.*\\.js|registerSW\\.js|manifest\\.webmanifest|index\\.html)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/|icons/|splash/|manifest\\.webmanifest|sw\\.js|workbox-.*\\.js|registerSW\\.js).*)",
@@ -10,4 +21,3 @@
     }
   ]
 }
-
