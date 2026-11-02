@@ -1,0 +1,56 @@
+{
+  "id": "/?source=pwa",
+  "name": "Amigos do Caio",
+  "short_name": "Amigos do Caio",
+  "description": "Tutores e campanhas de proteção animal — Guapimirim/RJ",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "theme_color": "#06154E",
+  "background_color": "#FFFFFF",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["government", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Novo Disparo",
+      "short_name": "Disparar",
+      "url": "/campanha/nova",
+      "icons": [{ "src": "/icons/shortcut-disparo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Buscar Tutor",
+      "short_name": "Buscar",
+      "url": "/tutores?foco=busca",
+      "icons": [{ "src": "/icons/shortcut-busca.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Cadastro Rápido",
+      "short_name": "Cadastrar",
+      "url": "/cadastro-rapido",
+      "icons": [{ "src": "/icons/shortcut-cadastro.png", "sizes": "96x96" }]
+    }
+  ]
+}

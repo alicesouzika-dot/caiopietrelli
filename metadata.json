@@ -1,0 +1,6 @@
+{
+  "name": "Amigos do Caio — Painel de Tutores",
+  "description": "Painel de comunicação com tutores de pets para campanhas de vacinação, adoção e castração via WhatsApp (Gabinete / Secretaria de Bem-Estar e Proteção Animal de Guapimirim/RJ).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

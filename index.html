@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Amigos do Caio</title>
+    <meta
+      name="description"
+      content="Painel de comunicação com tutores de pets para campanhas de vacinação, adoção e castração via WhatsApp (Gabinete / Secretaria de Bem-Estar e Proteção Animal de Guapimirim/RJ)."
+    />
+    <meta property="og:title" content="Amigos do Caio" />
+    <meta
+      property="og:description"
+      content="Painel de comunicação com tutores de pets para campanhas de vacinação, adoção e castração via WhatsApp (Gabinete / Secretaria de Bem-Estar e Proteção Animal de Guapimirim/RJ)."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA & Mobile Web App Meta Tags -->
+    <meta name="theme-color" content="#06154E" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Amigos do Caio" />
+    <meta name="application-name" content="Amigos do Caio" />
+    <meta name="msapplication-TileColor" content="#06154E" />
+
+    <!-- Links de Ícones PWA e Splash Screen -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png" />
+    <link rel="apple-touch-startup-image" href="/splash/splash-1170x2532.png" />
+
+    <!-- Leaflet CSS para Mapas de Bairros de Guapimirim -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      crossorigin=""
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#F7F8FC] text-[#0B1020] antialiased selection:bg-[#0A2472] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

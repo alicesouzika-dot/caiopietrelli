@@ -1,0 +1,14 @@
+# Supabase local / edge function configuration
+project_id = "ciyaeuhbzskwzmntadaz"
+
+[functions.enviar-whatsapp]
+verify_jwt = true
+
+[functions.zapi-status]
+verify_jwt = true
+
+[functions.criar-usuario]
+verify_jwt = true
+
+[functions.enviar-push]
+verify_jwt = true
